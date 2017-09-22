@@ -27,7 +27,7 @@ SELECT id FROM users
 
 - Migrating the database with ragtime
 
-```
+```sql
 ALTER TABLE users ADD COLUMN age INTEGER DEFAULT NULL
 ```
 
@@ -63,10 +63,12 @@ or
 
 ```
 lein repl
-...
-
-foo.core=> (-main)
 ```
 
+```clojure
+(-main)
+; ... checking things
+(mount/stop)
+```
 
 Navigate to [the UI](http://localhost:3001/ui/) to get the Swagger UI for discovery.
