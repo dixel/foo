@@ -1,4 +1,4 @@
-# freedom
+# foo
 Example web application with clojure for a repl-driven development demonstration.
 And some capabilities of clojure applications in terms of web micro-services:
 - Writing an always up-to-date swagger definition yaml with [swagger1st](https://github.com/zalando-stups/swagger1st)

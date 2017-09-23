@@ -20,14 +20,13 @@ paths:
         200:
           description: success
           schema:
-            type: object
-            properties:
-              message:
-                type: string
-                example: "Hello Tobi!"
-              name:
-                type: string
-                example: "Tobi"
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  example: 123
         default:
           description: error
     post:
@@ -44,13 +43,13 @@ paths:
           type: string
           required: true
           description: |
-            Name of the new user.
+            user name
         - name: age
           in: query
           type: integer
           required: true
           description: |
-            Age of the person
+            user age
       responses:
         200:
           description: success
@@ -77,18 +76,20 @@ paths:
           type: string
           required: true
           description: |
-            id of the user
+            user id
       responses:
         200:
           description: success
           schema:
-            type: object
-            properties:
-              message:
-                type: string
-                example: "Hello Tobi!"
-              name:
-                type: string
-                example: "Tobi"
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  type: integer
+                name:
+                  type: string
+                age:
+                  type: integer
         default:
           description: error
