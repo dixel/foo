@@ -17,7 +17,8 @@
   :main foo.core
 
   :profiles {:dev {:plugins [[lein-ring "0.12.0"]
-                             [lein-environ "1.1.0"]]
+                             [lein-environ "1.1.0"]
+                             [venantius/ultra "0.4.1"]]
                    :aliases {"migrate" ["run" "-m" "freedom.db/migrate"]}
                    :env {:pgsql-uri "//localhost:5432/freedom"
                          :pgsql-user "postgres"

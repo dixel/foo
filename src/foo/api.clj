@@ -1,5 +1,5 @@
 (ns foo.api
-  (:require [foo.database :refer [database]]
+  (:require [foo.storage :refer [database]]
             [foo.logging :refer [logging]]
             [io.sarnowski.swagger1st.core :as s1st]
             [io.sarnowski.swagger1st.util.security :as security]

@@ -1,0 +1,17 @@
+digraph G {
+  swagger [label="foo-api.yaml" shape="note"]
+  migrations [label="migrations.sql" shape="note"]
+  queries [label="queries.sql" shape="note"]
+  database [shape="folder"]
+  migrations -> database
+  queries -> storage
+  swagger -> api
+  handlers -> api
+  storage -> handlers
+  logging -> storage
+  logging -> api
+  logging -> app
+  logging -> handlers
+  api -> app
+  database -> storage
+}

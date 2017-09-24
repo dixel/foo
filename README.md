@@ -14,7 +14,7 @@ paths:
         - users
         - awesome
       # Hint: here we reference the actual Clojure function to call when this request comes in
-      operationId: freedom.handlers/get-all-users
+      operationId: foo.handlers/get-all-users
 ```
 
 - Writing SQL queries with (surprise) SQL syntax - [hugsql](https://github.com/layerware/hugsql)
@@ -41,11 +41,24 @@ ALTER TABLE users ADD COLUMN age INTEGER DEFAULT NULL
 
 
 ## Prerequisites
-- Java 8
-- Leiningen [installed](https://leiningen.org/#install)
-- Local postgresql `user: postgres, password: postgres` with a database `freedom` freshly created and available
+- Brain
+- Laptop
+- Java 8 (`sudo apt-get install openjdk-8-jre`)
+- Leiningen [installed](https://leiningen.org/#install) - (`wget https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein -O $HOME/bin && chmod u+x ~/bin/lein`)
+- Local postgresql `user: postgres, password: postgres` with a database `foo` freshly created and available
 - Being able to run this repository without huge stacktraces with `lein run` or at least `lein repl`
 - Preferably - your favorite text editor and the way to connect to a REPL from it (can assist with emacs/spacemacs setup for now, approach me beforehand if you have any questions about cursive/vim/lighttable)
+- Alternatively (for ubuntu 16.04 and later) - emacs-2.4.4+ + spacemacs:
+```
+sudo apt-get install emacs24
+#![ATTENTION] - erasing the old emacs config - please back up existing one 
+git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+git clone https://github.com/dixel/foo
+cd foo
+lein
+emacs -nw src/foo/core.clj
+<ALT>+<X> cider-jack-in <ENTER>
+```
 
 ## Plan
 - Starting it locally
@@ -53,7 +66,7 @@ ALTER TABLE users ADD COLUMN age INTEGER DEFAULT NULL
 - Building an artifact, deploying to playground cluster
 
 
-## Running freedom
+## Running foo
 
 ```
 lein run

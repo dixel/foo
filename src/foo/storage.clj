@@ -1,11 +1,11 @@
-(ns foo.database
+(ns foo.storage
   (:require [ragtime.jdbc :as jdbc]
             [ragtime.jdbc.migrations :as migrations]
             [ragtime.repl :as ragtime-repl]
             [environ.core :refer [env]]
-            [hugsql.core :as hugsql]
             [mount.core :refer [defstate]]
-            [taoensso.timbre :as log]))
+            [taoensso.timbre :as log]
+            [hugsql.core :as hugsql]))
 
 (def db
   {:classname "postgresql.Driver"
@@ -28,3 +28,5 @@
            (migrate)
            (log/info "migrations done")
            db))
+
+(hugsql/def-db-fns "db/queries.sql")

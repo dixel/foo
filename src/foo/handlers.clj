@@ -1,7 +1,7 @@
 (ns foo.handlers
   (:require [foo
-             [database :refer [database]]
-             [queries :as queries]]
+             [storage :refer [database]]
+             [storage :as storage]]
             [ring.util.response :as r]
             [taoensso.timbre :as log]))
 
@@ -9,7 +9,7 @@
   "Generates a greeting message and returns it."
   [request]
   ; extract parameter from request and generate message
-  (let [users (queries/get-all-user-ids database)]
+  (let [users (storage/get-all-user-ids database)]
     ; form ring response - json serialization will be done by s1st
     (-> (r/response {:users users})
         (r/content-type "application/json")
@@ -22,7 +22,7 @@
         age (get-in request [:parameters :query :age])]
     (log/infof "add-user: %s" {:name name
                                :age age})
-    (queries/add-user database {:id (rand-int 10000)
+    (storage/add-user database {:id (rand-int 10000)
                                 :age age
                                 :name name})
     (-> (r/response {:message "created"})
@@ -33,7 +33,7 @@
   "get user information"
   [request]
   (let [id (read-string (get-in request [:parameters :path :id]))
-        user-info (queries/get-user database {:id id})]
+        user-info (storage/get-user database {:id id})]
     (log/infof "getting info for request: " (:parameters request))
     (-> (r/response {:user user-info})
         (r/content-type "application/json")
