@@ -79,7 +79,10 @@ lein repl
 ```
 
 ```clojure
-(-main)
+;starting without the database
+(mount/start-without #'foo.storage/database)
+;or if postgres database is in place - starting everything
+(mount/start)
 ; ... checking things
 (mount/stop)
 ```
